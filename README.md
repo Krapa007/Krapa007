@@ -1,14 +1,14 @@
 <h1 align="center">Hi, I'm Kalyan 👋</h1>
-<h3 align="center">SDE at Stackular · Full-Stack & AI/ML Engineer · Bengaluru, India</h3>
+<h3 align="center">SDE at Stackular · Full-Stack Engineer · Hyderabad, India</h3>
 
 <br/>
 
 ## 🙋 About Me
 
-I'm a Software Development Engineer at **Stackular**, building full-stack products at the intersection of **Web Development**, **AI/ML**, and **Cloud**.
+I'm a Software Development Engineer at **Stackular**, building full-stack products at the intersection of **Web Development**, **AI/ML** and **Cloud**.
 
 - 🔭 Currently building an AI-powered **Applicant Tracking System** with real-time resume scoring and candidate pipeline management
-- 🌱 Working with **React 19**, **.NET 10**, **Python FastAPI**, and **Azure**
+- 🌱 Working with **React 19**, **.NET 10** and **Azure**
 - 💬 Ask me about full-stack architecture, queue-based pipelines, and AI integrations
 - 📫 Reach me at **krapa.kalyan@gmail.com**
 - 😄 Pronouns: he/him
