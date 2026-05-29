@@ -57,18 +57,36 @@ I'm a Software Development Engineer at **Stackular**, building full-stack produc
 
 <br/>
 
-## 📊 GitHub Stats
+## 🚀 Featured Projects
+
+| Project | Description | Stack |
+|---|---|---|
+| **AI Applicant Tracking System** | Full-stack ATS with real-time resume scoring, AI candidate ranking and pipeline management | React 19, .NET 10, Azure, OpenAI |
+| **Queue-Based Pipeline Engine** | Scalable background job processor using Azure Service Bus for distributed services | .NET, Azure Service Bus, SQL Server |
+
+<br/>
+
+## 📚 Currently Learning
+
+- 🤖 Deeper **LLM integrations** and prompt engineering patterns
+- ☁️ **Azure certifications** and cloud architecture best practices
+- ⚡ **Microservices** patterns with .NET Aspire
+- 🧪 Advanced **testing strategies** for full-stack apps
+
+<br/>
+
+## 🏆 Trophies
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Krapa007&theme=dark&hide_border=true" alt="GitHub Streak" />
+  <img src="https://github-trophies.vercel.app/?username=Krapa007&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=6" />
 </p>
+
+<br/>
+
+## 📈 Contribution Graph
+
 <p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Krapa007&theme=github_dark" alt="Repos Per Language" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Krapa007&theme=github_dark" alt="Most Commit Language" />
-</p>
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Krapa007&theme=github_dark" alt="Stats" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Krapa007&theme=github_dark&utcOffset=5.5" alt="Productive Time" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Krapa007&theme=github-compact&hide_border=true&area=true" width="95%" />
 </p>
 
 <br/>
