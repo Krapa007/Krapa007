@@ -83,14 +83,6 @@ I'm a Software Development Engineer at **Stackular**, building full-stack produc
 
 <br/>
 
-## 📈 Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Krapa007&theme=github-compact&hide_border=true&area=true" width="95%" />
-</p>
-
-<br/>
-
 ## ✍️ Dev Quote
 
 <p align="center">
