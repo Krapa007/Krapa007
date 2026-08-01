@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Amulya & Alekhya · Happy Friendship Day</title>
-<meta name="description" content="A little corner of the internet made for Amulya & Alekhya — happy Friendship Day." />
+<title>For Amulya · Happy Friendship Day</title>
+<meta name="description" content="A little corner of the internet made for Amulya — happy Friendship Day." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Caveat:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -187,16 +187,16 @@ footer .made{font-family:"Caveat";font-size:1.4rem;color:var(--gold);margin-top:
   <p class="eyebrow reveal in">Happy Friendship Day, 2026</p>
   <h1 class="reveal in d1">Some people feel<br/>like <em>sunlight.</em></h1>
   <div class="names reveal in d2">
-    <b data-name>Amulya</b><span class="amp">&amp;</span><b data-name>Alekhya</b>
+    <span class="amp">for</span><b data-name>Amulya</b>
   </div>
-  <p class="subtitle reveal in d3">Two of them, actually. This little corner of the internet is for you both — thank you for being my constant, my chaos, and my calm.</p>
-  <div class="scroll-cue reveal in d4">a note for you both<span>↓</span></div>
+  <p class="subtitle reveal in d3">This little corner of the internet is for you — thank you for being my constant, my chaos, and my calm, all in one person.</p>
+  <div class="scroll-cue reveal in d4">a note for you<span>↓</span></div>
 </section>
 
 <!-- LETTER -->
 <section>
   <div class="letter reveal">
-    <h2>Dear Amulya &amp; Alekhya,</h2>
+    <h2>Dear Amulya,</h2>
     <p id="typed"></p>
     <p class="sign">— always, Kalyan</p>
   </div>
@@ -220,7 +220,7 @@ footer .made{font-family:"Caveat";font-size:1.4rem;color:var(--gold);margin-top:
       </figure>
       <figure class="polaroid reveal d3">
         <div class="pic" data-photo="photos/3.jpg"><span class="ph">add<br/>photos/3.jpg</span></div>
-        <figcaption class="cap">golden hour &amp; you two</figcaption>
+        <figcaption class="cap">golden hour &amp; you</figcaption>
       </figure>
     </div>
   </div>
@@ -230,16 +230,16 @@ footer .made{font-family:"Caveat";font-size:1.4rem;color:var(--gold);margin-top:
 <section>
   <div class="wrap">
     <div class="head reveal">
-      <h2>Why you two are <em>rare</em></h2>
+      <h2>Why you're so <em>rare</em></h2>
       <p>a very incomplete list</p>
     </div>
     <div class="reasons">
       <article class="card reveal d1"><div class="n">01</div><h3>You show up</h3><p>Rain, exams, 2 a.m. meltdowns — you're always somehow already there.</p></article>
       <article class="card reveal d2"><div class="n">02</div><h3>Effortless laughter</h3><p>One look and we're gone. No context needed, no explanation survives.</p></article>
       <article class="card reveal d3"><div class="n">03</div><h3>Honest to a fault</h3><p>You tell me the truth even when it stings — that's the whole point of you.</p></article>
-      <article class="card reveal d1"><div class="n">04</div><h3>Home, but a person</h3><p>Wherever the three of us are, that place quietly turns into home.</p></article>
+      <article class="card reveal d1"><div class="n">04</div><h3>Home, but a person</h3><p>Wherever the two of us are, that place quietly turns into home.</p></article>
       <article class="card reveal d2"><div class="n">05</div><h3>Ambitious &amp; kind</h3><p>You chase big things and still leave room to cheer for mine.</p></article>
-      <article class="card reveal d3"><div class="n">06</div><h3>Simply, my people</h3><p>Of all the friendships out there, I got lucky twice.</p></article>
+      <article class="card reveal d3"><div class="n">06</div><h3>Simply, my person</h3><p>Of all the friendships out there, I got lucky with you.</p></article>
     </div>
   </div>
 </section>
@@ -255,7 +255,7 @@ footer .made{font-family:"Caveat";font-size:1.4rem;color:var(--gold);margin-top:
 </section>
 
 <footer>
-  <p>Made with a lot of <span class="heart">♥</span> for Amulya &amp; Alekhya.</p>
+  <p>Made with a lot of <span class="heart">♥</span> for Amulya.</p>
   <p class="made">Happy Friendship Day — here's to many more.</p>
 </footer>
 
@@ -281,7 +281,7 @@ document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 /* ---------- Typewriter letter ---------- */
 (function(){
   const el=document.getElementById('typed');
-  const msg="It's Friendship Day, and I couldn't let it pass without saying this out loud: the two of you are the best thing I never had to earn. Thank you for every inside joke, every late-night call, every time you knew before I did. Whatever comes next, I'm glad it comes with you both. ";
+  const msg="It's Friendship Day, and I couldn't let it pass without saying this out loud: you are the best thing I never had to earn. Thank you for every inside joke, every late-night call, every time you knew what I meant before I did. Whatever comes next, I'm glad it comes with you. ";
   let started=false;
   const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!started){started=true;type();obs.disconnect();}});},{threshold:.4});
   obs.observe(el.closest('.letter'));
@@ -308,7 +308,7 @@ document.querySelectorAll('.pic[data-photo]').forEach(p=>{
       if(p.shape==='r'){ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);}else{ctx.beginPath();ctx.ellipse(0,0,p.s*.6,p.s,0,0,7);ctx.fill();}
       ctx.restore();if(p.y>H+40||p.life<=0)parts.splice(i,1);}
     requestAnimationFrame(loop);})();
-  let count=0;const labels=["hooray! 🎉","again! 💛","best friends forever ✨","the three amigos 🌟","never letting you go 🤍","okay one more 🎊"];
+  let count=0;const labels=["hooray! 🎉","again! 💛","best friends forever ✨","you &amp; me always 🌟","never letting you go 🤍","okay one more 🎊"];
   document.getElementById('celebrate').addEventListener('click',()=>{burst(140);count++;
     document.getElementById('count').textContent=labels[Math.min(count-1,labels.length-1)];});
 })();

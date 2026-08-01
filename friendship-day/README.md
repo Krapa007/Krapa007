@@ -1,4 +1,4 @@
-# 🌇 For Amulya & Alekhya — Happy Friendship Day
+# 🌇 For Amulya — Happy Friendship Day
 
 A single-page wishing site with a *golden-hour dusk* art direction: a twinkling
 star field, a hand-taped letter that types itself out, floating polaroids, and a
