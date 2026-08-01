@@ -3,315 +3,218 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Amulya · Happy Friendship Day</title>
-<meta name="description" content="A little corner of the internet made for Amulya — happy Friendship Day." />
+<title>For Amulya — A Friendship Day Dedication</title>
+<meta name="description" content="A small editorial dedication for Amulya, on Friendship Day." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Caveat:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --ink:#2a1b2e;
-  --paper:#fdf6ec;
-  --coral:#ff7a6b;
-  --gold:#ffcf7a;
-  --plum:#6d3b6e;
-  --indigo:#241733;
-  --rose:#ff9fbf;
-  --star:#ffe9b8;
-  --shadow:rgba(30,12,40,.35);
+  --paper:#f4efe6;
+  --ink:#1b1916;
+  --soft:#6d6558;
+  --faint:#9a9284;
+  --line:#ddd5c6;
+  --accent:#b0492a;      /* terracotta, used sparingly */
+  --measure:66ch;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
+  background:var(--paper);color:var(--ink);
   font-family:"Instrument Sans",system-ui,sans-serif;
-  color:var(--paper);
-  background:#160d22;
-  overflow-x:hidden;
+  font-size:clamp(16px,1.15vw,18px);line-height:1.7;
   -webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.028'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:var(--paper)}
+
+.page{max-width:1100px;margin:0 auto;padding:0 clamp(1.4rem,5vw,4rem)}
+.serif{font-family:"Fraunces",Georgia,serif}
+.label{
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--soft);font-weight:500;
+}
+.rule{height:1px;background:var(--line);border:0}
+.accent{color:var(--accent)}
+
+/* ---------- Masthead ---------- */
+.masthead{display:flex;justify-content:space-between;align-items:baseline;
+  padding:1.6rem 0 1rem;gap:1rem;flex-wrap:wrap}
+.masthead .t{font-family:"Fraunces",serif;font-weight:500;font-size:1rem;letter-spacing:.02em}
+
+/* ---------- Cover ---------- */
+.cover{padding:clamp(3rem,11vh,8rem) 0 clamp(2.5rem,7vh,5rem)}
+.cover .kicker{margin-bottom:clamp(1.6rem,5vh,3rem)}
+.cover h1{
+  font-family:"Fraunces",serif;font-weight:300;font-optical-sizing:auto;
+  font-size:clamp(3.2rem,13vw,10rem);line-height:.92;letter-spacing:-.02em;
+}
+.cover h1 .name{font-weight:500;font-style:italic;color:var(--accent);display:inline-block}
+.cover .stand{
+  font-family:"Fraunces",serif;font-weight:300;font-style:italic;
+  font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.5;color:var(--ink);
+  max-width:30ch;margin-top:clamp(1.8rem,5vh,3rem);
+}
+.cover .meta{display:flex;gap:2.4rem;margin-top:clamp(2rem,6vh,3.5rem);flex-wrap:wrap}
+.cover .meta div span{display:block}
+.cover .meta .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
+.cover .meta .v{font-family:"Fraunces",serif;font-size:1.05rem}
+
+/* ---------- Article blocks ---------- */
+section{padding:clamp(3rem,8vh,6rem) 0}
+.grid{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.grid .aside{position:sticky;top:2rem}
+.grid .aside .n{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:300;line-height:1;color:var(--accent)}
+.grid .aside .lbl{margin-top:.6rem}
+.body{max-width:var(--measure)}
+.body p{margin-bottom:1.25rem}
+.body p.lead:first-letter{
+  font-family:"Fraunces",serif;float:left;font-size:3.6rem;line-height:.72;
+  padding:.36rem .5rem 0 0;color:var(--accent);font-weight:400;
+}
+.sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.3rem;margin-top:1.6rem}
+
+/* line reveal */
+.rise{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* ---------- Featured memory ---------- */
+.feature{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(3rem,9vh,6rem) 0;text-align:left}
+.feature .label{margin-bottom:1.6rem}
+.feature blockquote{
+  font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.6rem,4.4vw,2.9rem);
+  line-height:1.28;letter-spacing:-.01em;max-width:22ch;
+}
+.feature blockquote em{color:var(--accent);font-style:italic}
+.feature .placeholder{
+  display:block;margin-top:1.4rem;font-family:"Instrument Sans";font-size:.85rem;
+  letter-spacing:.04em;color:var(--faint);max-width:52ch;line-height:1.6;
+  border-left:2px solid var(--accent);padding-left:1rem;
 }
 
-/* ---------- Dusk sky ---------- */
-.sky{
-  position:fixed;inset:0;z-index:-3;
-  background:
-    radial-gradient(120% 90% at 50% 8%, #3a2350 0%, #2b1740 34%, #1a0f2b 60%, #120a1f 100%),
-    linear-gradient(180deg,#241537 0%,#3d2154 45%,#7a3b63 78%,#c9695f 100%);
+/* ---------- Plates (photos) ---------- */
+.plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(1.4rem,4vw,3rem)}
+figure.plate{margin:0}
+.plate .frame{
+  aspect-ratio:4/5;background:#e7e0d3 no-repeat center/cover;
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  filter:grayscale(.15);
 }
-.glow{
-  position:fixed;left:50%;bottom:-42vh;transform:translateX(-50%);
-  width:120vw;height:80vh;z-index:-2;
-  background:radial-gradient(closest-side, rgba(255,180,120,.55), rgba(255,140,110,.22) 45%, transparent 72%);
-  filter:blur(4px);pointer-events:none;
-}
-.grain{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-}
-#stars{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.plate .frame .hint{font-family:"Instrument Sans";font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint);text-align:center;padding:1rem}
+.plate figcaption{display:flex;justify-content:space-between;gap:1rem;margin-top:.8rem;
+  font-size:.78rem;letter-spacing:.06em;color:var(--soft);border-top:1px solid var(--ink);padding-top:.6rem}
+.plate figcaption .pl{font-family:"Fraunces",serif;font-style:italic}
 
-/* ---------- Layout ---------- */
-section{position:relative;padding:clamp(4rem,10vh,8rem) 1.5rem}
-.wrap{max-width:1040px;margin:0 auto}
-.eyebrow{
-  font-family:"Caveat",cursive;font-size:clamp(1.4rem,3.6vw,2.1rem);
-  color:var(--gold);letter-spacing:.5px;
-}
+/* ---------- Colophon ---------- */
+.colophon{padding:clamp(3rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);border-top:1px solid var(--line)}
+.colophon .big{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.8rem,6vw,3.4rem);
+  line-height:1.15;max-width:20ch}
+.colophon .big em{font-style:italic;color:var(--accent)}
+.colophon .foot{display:flex;justify-content:space-between;gap:1.5rem;margin-top:clamp(2.5rem,7vh,4.5rem);
+  flex-wrap:wrap;font-size:.76rem;letter-spacing:.06em;color:var(--soft)}
+.colophon .spark{color:var(--accent);cursor:default}
 
-/* ---------- Hero ---------- */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:8vh}
-.moon{
-  position:absolute;top:5.5vh;right:min(10vw,150px);width:clamp(56px,7.5vw,100px);height:clamp(56px,7.5vw,100px);
-  border-radius:50%;
-  background:radial-gradient(circle at 35% 30%, #fff7e6, #ffe3a8 55%, #f6c877 100%);
-  box-shadow:0 0 60px 12px rgba(255,220,150,.45), inset -14px -10px 0 rgba(210,150,90,.18);
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr;gap:1rem}
+  .grid .aside{position:static;display:flex;align-items:baseline;gap:1rem}
+  .grid .aside .n{font-size:1.8rem}.grid .aside .lbl{margin-top:0}
 }
-.hero h1{
-  font-family:"Fraunces",serif;font-weight:400;font-optical-sizing:auto;
-  font-size:clamp(2.8rem,9.5vw,6.4rem);line-height:.98;letter-spacing:-.02em;
-  max-width:15ch;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.35);
-}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.names{
-  display:flex;gap:clamp(.6rem,3vw,2rem);flex-wrap:wrap;justify-content:center;align-items:baseline;
-  margin:1.4rem 0 .3rem;font-family:"Fraunces",serif;
-  font-size:clamp(2rem,8vw,5rem);font-weight:300;
-}
-.names b{font-weight:600;color:var(--coral);position:relative}
-.names .amp{font-family:"Caveat",cursive;color:var(--gold);font-size:.8em;transform:translateY(-.05em)}
-.subtitle{max-width:34ch;margin:1rem auto 0;color:#f4dfd0;font-size:clamp(1rem,2.4vw,1.2rem);line-height:1.65}
-.scroll-cue{margin-top:3rem;font-family:"Caveat";color:#ffdca8;font-size:1.4rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.9}
-.scroll-cue span{animation:bob 1.8s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
-
-/* ---------- Letter ---------- */
-.letter{
-  background:linear-gradient(180deg,#fffaf0,#fdf2df);color:var(--ink);
-  max-width:620px;margin:0 auto;padding:clamp(2rem,5vw,3.4rem);
-  border-radius:6px;position:relative;
-  box-shadow:0 30px 60px -20px var(--shadow), 0 2px 0 rgba(0,0,0,.05);
-  transform:rotate(-1.1deg);
-}
-.letter::before{
-  content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-3deg);
-  width:150px;height:34px;background:rgba(255,207,122,.55);
-  box-shadow:0 4px 10px rgba(0,0,0,.12);backdrop-filter:blur(1px);
-  border:1px dashed rgba(160,110,40,.35);
-}
-.letter h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.6rem,4.5vw,2.3rem);margin-bottom:1rem;color:var(--plum)}
-.letter p{font-size:1.06rem;line-height:1.85;margin-bottom:1rem;color:#4a3550}
-.letter .sign{font-family:"Caveat",cursive;font-size:1.9rem;color:var(--coral);margin-top:.4rem}
-.type-cursor{display:inline-block;width:2px;height:1.05em;background:var(--coral);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-
-/* ---------- Section heads ---------- */
-.head{text-align:center;margin-bottom:clamp(2.4rem,6vh,4rem)}
-.head h2{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(2rem,6vw,3.4rem);color:#fff;letter-spacing:-.02em}
-.head h2 em{font-style:italic;color:var(--coral)}
-.head p{color:#e9d3c6;margin-top:.6rem;font-size:1.05rem}
-
-/* ---------- Polaroids ---------- */
-.gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.4rem,4vw,2.6rem)}
-.polaroid{
-  background:#fff;padding:14px 14px 52px;border-radius:3px;width:min(260px,74vw);
-  box-shadow:0 22px 44px -18px var(--shadow);position:relative;
-  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
-}
-.polaroid:nth-child(1){transform:rotate(-5deg)}
-.polaroid:nth-child(2){transform:rotate(3deg)}
-.polaroid:nth-child(3){transform:rotate(-2deg)}
-.polaroid:hover{transform:rotate(0) scale(1.05) translateY(-6px);box-shadow:0 34px 60px -18px var(--shadow);z-index:3}
-.polaroid::before{
-  content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-4deg);
-  width:88px;height:26px;background:rgba(255,215,150,.6);border:1px solid rgba(180,130,60,.25);
-}
-.pic{aspect-ratio:1/1;border-radius:2px;background-size:cover;background-position:center;
-  display:flex;align-items:flex-end;justify-content:center;overflow:hidden;
-  background-color:#efe6da;
-}
-.pic .ph{font-family:"Caveat";color:#a68f78;font-size:1.5rem;text-align:center;padding-bottom:1rem;line-height:1.2}
-.polaroid .cap{font-family:"Caveat";color:#3a2b40;font-size:1.5rem;text-align:center;position:absolute;bottom:12px;left:0;right:0}
-
-/* ---------- Reasons ---------- */
-.reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;max-width:900px;margin:0 auto}
-.card{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-  border-radius:18px;padding:1.6rem;backdrop-filter:blur(6px);
-  transition:transform .3s, background .3s, border-color .3s;
-}
-.card:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);border-color:rgba(255,207,122,.45)}
-.card .n{font-family:"Caveat";color:var(--gold);font-size:1.7rem}
-.card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.25rem;margin:.3rem 0 .5rem;color:#fff}
-.card p{color:#e6d5cb;line-height:1.6;font-size:.98rem}
-
-/* ---------- CTA ---------- */
-.cta{text-align:center}
-.cta .btn{
-  font-family:"Fraunces",serif;font-size:1.15rem;color:var(--indigo);
-  background:linear-gradient(180deg,var(--gold),var(--coral));
-  border:none;padding:1rem 2.4rem;border-radius:100px;cursor:pointer;font-weight:600;
-  box-shadow:0 16px 34px -12px rgba(255,140,110,.7);
-  transition:transform .2s, box-shadow .2s;
-}
-.cta .btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 22px 42px -12px rgba(255,140,110,.85)}
-.cta .btn:active{transform:translateY(0) scale(.98)}
-.count{font-family:"Caveat";color:#ffdca8;margin-top:1rem;font-size:1.35rem;min-height:1.4em}
-
-/* ---------- Footer ---------- */
-footer{text-align:center;padding:4rem 1.5rem 5rem;color:#e9d3c6}
-footer .heart{color:var(--coral)}
-footer .made{font-family:"Caveat";font-size:1.4rem;color:var(--gold);margin-top:.4rem}
-
-/* confetti canvas */
-#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
-
-@media (prefers-reduced-motion:reduce){
-  .scroll-cue span{animation:none}.reveal{transition:none}
-}
+@media(prefers-reduced-motion:reduce){.rise{transition:none}}
 </style>
 </head>
 <body>
-<div class="sky"></div>
-<div class="glow"></div>
-<canvas id="stars"></canvas>
-<div class="grain"></div>
-<canvas id="confetti"></canvas>
+<div class="page">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="moon"></div>
-  <p class="eyebrow reveal in">Happy Friendship Day, 2026</p>
-  <h1 class="reveal in d1">Some people feel<br/>like <em>sunlight.</em></h1>
-  <div class="names reveal in d2">
-    <span class="amp">for</span><b data-name>Amulya</b>
-  </div>
-  <p class="subtitle reveal in d3">This little corner of the internet is for you — thank you for being my constant, my chaos, and my calm, all in one person.</p>
-  <div class="scroll-cue reveal in d4">a note for you<span>↓</span></div>
-</section>
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="t">The Amulya Edition</span>
+    <span class="label">Friendship Day · MMXXVI</span>
+  </header>
+  <hr class="rule" />
 
-<!-- LETTER -->
-<section>
-  <div class="letter reveal">
-    <h2>Dear Amulya,</h2>
-    <p id="typed"></p>
-    <p class="sign">— always, Kalyan</p>
-  </div>
-</section>
-
-<!-- POLAROIDS -->
-<section>
-  <div class="wrap">
-    <div class="head reveal">
-      <h2>Moments I'd <em>keep forever</em></h2>
-      <p>Drop your favourite photos into the <code>photos/</code> folder — they'll slot right in.</p>
+  <!-- COVER -->
+  <section class="cover">
+    <div class="kicker label rise in">A dedication, in one part — for a friend worth the whole page</div>
+    <h1 class="rise in d1">For<br/><span class="name">Amulya.</span></h1>
+    <p class="stand serif rise in d2">Of all the people the years handed me, you're the one I'd choose again on purpose.</p>
+    <div class="meta rise in d3">
+      <div><span class="k">Written by</span><span class="v">Kalyan</span></div>
+      <div><span class="k">For</span><span class="v">Amulya</span></div>
+      <div><span class="k">Occasion</span><span class="v">Friendship Day</span></div>
     </div>
-    <div class="gallery">
-      <figure class="polaroid reveal d1">
-        <div class="pic" data-photo="photos/1.jpg"><span class="ph">add<br/>photos/1.jpg</span></div>
-        <figcaption class="cap">the day it all began</figcaption>
-      </figure>
-      <figure class="polaroid reveal d2">
-        <div class="pic" data-photo="photos/2.jpg"><span class="ph">add<br/>photos/2.jpg</span></div>
-        <figcaption class="cap">us, being us</figcaption>
-      </figure>
-      <figure class="polaroid reveal d3">
-        <div class="pic" data-photo="photos/3.jpg"><span class="ph">add<br/>photos/3.jpg</span></div>
-        <figcaption class="cap">golden hour &amp; you</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- REASONS -->
-<section>
-  <div class="wrap">
-    <div class="head reveal">
-      <h2>Why you're so <em>rare</em></h2>
-      <p>a very incomplete list</p>
+  <!-- THE LETTER -->
+  <section class="grid">
+    <div class="aside rise">
+      <div class="n">01</div>
+      <div class="lbl label">The Letter</div>
     </div>
-    <div class="reasons">
-      <article class="card reveal d1"><div class="n">01</div><h3>You show up</h3><p>Rain, exams, 2 a.m. meltdowns — you're always somehow already there.</p></article>
-      <article class="card reveal d2"><div class="n">02</div><h3>Effortless laughter</h3><p>One look and we're gone. No context needed, no explanation survives.</p></article>
-      <article class="card reveal d3"><div class="n">03</div><h3>Honest to a fault</h3><p>You tell me the truth even when it stings — that's the whole point of you.</p></article>
-      <article class="card reveal d1"><div class="n">04</div><h3>Home, but a person</h3><p>Wherever the two of us are, that place quietly turns into home.</p></article>
-      <article class="card reveal d2"><div class="n">05</div><h3>Ambitious &amp; kind</h3><p>You chase big things and still leave room to cheer for mine.</p></article>
-      <article class="card reveal d3"><div class="n">06</div><h3>Simply, my person</h3><p>Of all the friendships out there, I got lucky with you.</p></article>
+    <div class="body rise d1">
+      <p class="lead">I'm not usually the kind of person who builds a whole website about someone. You've been the exception to that — the same way you've been the exception to most of my rules.</p>
+      <p>Some friendships you have to work at. Ours never asked me to perform, or explain, or be a tidier version of myself. You just decided I was worth keeping, quietly, and then kept me.</p>
+      <p>So this is the smallest way I know to say the loud thing out loud: thank you for being easy to know and impossible to forget.</p>
+      <p class="sign accent">— Kalyan</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta">
-  <div class="wrap reveal">
-    <p class="eyebrow">one more thing…</p>
-    <div class="head"><h2>Press for a little <em>celebration</em></h2></div>
-    <button class="btn" id="celebrate">Celebrate us 🎉</button>
-    <p class="count" id="count"></p>
-  </div>
-</section>
+  <!-- FEATURED MEMORY -->
+  <section class="feature">
+    <div class="page" style="padding:0">
+      <div class="label rise">02 — The one I keep</div>
+      <blockquote class="serif rise d1">There's one day I go back to when I think of you — <em>the day I'll always keep.</em></blockquote>
+      <span class="placeholder rise d2">↳ This is the centrepiece. Tell me the real story — where you were, what happened, what she said — and it lives right here, set as a short essay. Until then, this line is holding its place.</span>
+    </div>
+  </section>
 
-<footer>
-  <p>Made with a lot of <span class="heart">♥</span> for Amulya.</p>
-  <p class="made">Happy Friendship Day — here's to many more.</p>
-</footer>
+  <!-- PLATES -->
+  <section class="grid">
+    <div class="aside rise">
+      <div class="n">03</div>
+      <div class="lbl label">Plates</div>
+    </div>
+    <div class="body" style="max-width:none">
+      <p class="rise" style="max-width:40ch;color:var(--soft);margin-bottom:2rem">A few frames worth developing. Drop images into <code>photos/</code> as <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code>.</p>
+      <div class="plates">
+        <figure class="plate rise"><div class="frame" data-photo="photos/1.jpg"><span class="hint">Plate I<br/>photos/1.jpg</span></div><figcaption><span class="pl">Plate I</span><span>the beginning</span></figcaption></figure>
+        <figure class="plate rise d1"><div class="frame" data-photo="photos/2.jpg"><span class="hint">Plate II<br/>photos/2.jpg</span></div><figcaption><span class="pl">Plate II</span><span>us, unposed</span></figcaption></figure>
+        <figure class="plate rise d2"><div class="frame" data-photo="photos/3.jpg"><span class="hint">Plate III<br/>photos/3.jpg</span></div><figcaption><span class="pl">Plate III</span><span>lately</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <p class="big serif rise">Here's to another year of <em>you.</em></p>
+    <div class="foot rise d1">
+      <span>Set in Fraunces &amp; Instrument Sans. Made by hand, not by template.</span>
+      <span><span class="spark" id="spark">✦</span> &nbsp;For Amulya, with everything.</span>
+    </div>
+  </footer>
+
+</div>
 
 <script>
-/* ---------- Twinkling star constellation ---------- */
-(function(){
-  const c=document.getElementById('stars'),x=c.getContext('2d');let W,H,stars=[];
-  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;stars=[];
-    const n=Math.min(160,Math.floor(W*H/9000));
-    for(let i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H*.85,r:Math.random()*1.4+.3,p:Math.random()*Math.PI*2,s:Math.random()*.02+.005});}
-  resize();addEventListener('resize',resize);
-  (function loop(){x.clearRect(0,0,W,H);
-    for(const st of stars){st.p+=st.s;const a=.35+Math.sin(st.p)*.35;
-      x.globalAlpha=a;x.fillStyle='#ffe9b8';x.beginPath();x.arc(st.x,st.y,st.r,0,7);x.fill();
-      if(st.r>1.1){x.globalAlpha=a*.25;x.beginPath();x.arc(st.x,st.y,st.r*3,0,7);x.fill();}}
-    x.globalAlpha=1;requestAnimationFrame(loop);})();
-})();
+/* quiet, editorial reveal — no confetti, no noise */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.2,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rise:not(.in)').forEach(el=>io.observe(el));
 
-/* ---------- Reveal on scroll ---------- */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.18});
-document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
-
-/* ---------- Typewriter letter ---------- */
-(function(){
-  const el=document.getElementById('typed');
-  const msg="It's Friendship Day, and I couldn't let it pass without saying this out loud: you are the best thing I never had to earn. Thank you for every inside joke, every late-night call, every time you knew what I meant before I did. Whatever comes next, I'm glad it comes with you. ";
-  let started=false;
-  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!started){started=true;type();obs.disconnect();}});},{threshold:.4});
-  obs.observe(el.closest('.letter'));
-  function type(){let i=0;const cur=document.createElement('span');cur.className='type-cursor';el.after(cur);
-    (function step(){if(i<=msg.length){el.textContent=msg.slice(0,i++);setTimeout(step,26);}else{cur.remove();}})();}
-})();
-
-/* ---------- Photos: swap in real files if present ---------- */
-document.querySelectorAll('.pic[data-photo]').forEach(p=>{
-  const img=new Image();img.onload=()=>{p.style.backgroundImage=`url('${p.dataset.photo}')`;p.querySelector('.ph').style.display='none';};
-  img.src=p.dataset.photo;
+/* swap in real photos when present */
+document.querySelectorAll('.frame[data-photo]').forEach(f=>{
+  const img=new Image();
+  img.onload=()=>{f.style.backgroundImage=`url('${f.dataset.photo}')`;const h=f.querySelector('.hint');if(h)h.style.display='none';f.style.filter='grayscale(0)';};
+  img.src=f.dataset.photo;
 });
 
-/* ---------- Confetti / petal burst ---------- */
-(function(){
-  const cv=document.getElementById('confetti'),ctx=cv.getContext('2d');let W,H,parts=[];
-  function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;}rs();addEventListener('resize',rs);
-  const colors=['#ff7a6b','#ffcf7a','#ff9fbf','#fff3d6','#c88bd6','#8be0d6'];
-  function burst(n){for(let i=0;i<n;i++){parts.push({x:W/2,y:H*.68,vx:(Math.random()-.5)*13,vy:-(Math.random()*15+6),g:.32+Math.random()*.15,
-    s:Math.random()*9+5,c:colors[Math.random()*colors.length|0],rot:Math.random()*6,vr:(Math.random()-.5)*.4,life:120,shape:Math.random()<.5?'r':'c'});}}
-  (function loop(){ctx.clearRect(0,0,W,H);
-    for(let i=parts.length-1;i>=0;i--){const p=parts[i];p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life--;
-      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.globalAlpha=Math.max(0,p.life/120);
-      if(p.shape==='r'){ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);}else{ctx.beginPath();ctx.ellipse(0,0,p.s*.6,p.s,0,0,7);ctx.fill();}
-      ctx.restore();if(p.y>H+40||p.life<=0)parts.splice(i,1);}
-    requestAnimationFrame(loop);})();
-  let count=0;const labels=["hooray! 🎉","again! 💛","best friends forever ✨","you &amp; me always 🌟","never letting you go 🤍","okay one more 🎊"];
-  document.getElementById('celebrate').addEventListener('click',()=>{burst(140);count++;
-    document.getElementById('count').textContent=labels[Math.min(count-1,labels.length-1)];});
-})();
+/* one restrained flourish: the closing mark breathes on hover */
+const spark=document.getElementById('spark');
+if(spark){spark.style.transition='transform .6s ease, color .6s ease';
+  spark.addEventListener('pointerenter',()=>{spark.style.transform='rotate(180deg) scale(1.4)';});
+  spark.addEventListener('pointerleave',()=>{spark.style.transform='none';});}
 </script>
 </body>
 </html>
