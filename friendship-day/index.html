@@ -3,224 +3,199 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Amulya — A Friendship Day Dedication</title>
-<meta name="description" content="A small editorial dedication for Amulya, on Friendship Day." />
+<title>For Amulya — A Story in Chapters</title>
+<meta name="description" content="A scroll-story for Amulya: March, this week, and the night of 2 August 2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --paper:#f4efe6;
-  --ink:#1b1916;
-  --soft:#6d6558;
-  --faint:#9a9284;
-  --line:#ddd5c6;
-  --accent:#b0492a;      /* terracotta, used sparingly */
-  --measure:66ch;
+  --bg:#100e0c; --fg:#f2ece1; --dim:#8a8073; --accent:#e0a35c; --line:rgba(255,255,255,.14);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 body{
-  background:var(--paper);color:var(--ink);
+  background:var(--bg);color:var(--fg);
   font-family:"Instrument Sans",system-ui,sans-serif;
-  font-size:clamp(16px,1.15vw,18px);line-height:1.7;
+  font-size:clamp(16px,1.1vw,18px);line-height:1.7;
   -webkit-font-smoothing:antialiased;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.028'/%3E%3C/svg%3E");
+  transition:background-color .8s ease,color .8s ease;
+  overflow-x:hidden;
 }
-::selection{background:var(--accent);color:var(--paper)}
-
-.page{max-width:1100px;margin:0 auto;padding:0 clamp(1.4rem,5vw,4rem)}
+::selection{background:var(--accent);color:var(--bg)}
 .serif{font-family:"Fraunces",Georgia,serif}
-.label{
-  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--soft);font-weight:500;
-}
-.rule{height:1px;background:var(--line);border:0}
-.accent{color:var(--accent)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");}
 
-/* ---------- Masthead ---------- */
-.masthead{display:flex;justify-content:space-between;align-items:baseline;
-  padding:1.6rem 0 1rem;gap:1rem;flex-wrap:wrap}
-.masthead .t{font-family:"Fraunces",serif;font-weight:500;font-size:1rem;letter-spacing:.02em}
+/* ---------- top progress (mobile) ---------- */
+.topbar{position:fixed;top:0;left:0;height:2px;width:100%;z-index:20;background:transparent}
+.topbar i{display:block;height:100%;width:var(--p,0%);background:var(--accent);transition:width .1s linear,background-color .8s}
 
-/* ---------- Cover ---------- */
-.cover{padding:clamp(3rem,11vh,8rem) 0 clamp(2.5rem,7vh,5rem)}
-.cover .kicker{margin-bottom:clamp(1.6rem,5vh,3rem)}
-.cover h1{
-  font-family:"Fraunces",serif;font-weight:300;font-optical-sizing:auto;
-  font-size:clamp(3.2rem,13vw,10rem);line-height:.92;letter-spacing:-.02em;
-}
-.cover h1 .name{font-weight:500;font-style:italic;color:var(--accent);display:inline-block}
-.cover .stand{
-  font-family:"Fraunces",serif;font-weight:300;font-style:italic;
-  font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.5;color:var(--ink);
-  max-width:30ch;margin-top:clamp(1.8rem,5vh,3rem);
-}
-.cover .meta{display:flex;gap:2.4rem;margin-top:clamp(2rem,6vh,3.5rem);flex-wrap:wrap}
-.cover .meta div span{display:block}
-.cover .meta .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
-.cover .meta .v{font-family:"Fraunces",serif;font-size:1.05rem}
+/* ---------- side rail ---------- */
+.rail{position:fixed;top:50%;left:clamp(1rem,3vw,2.4rem);transform:translateY(-50%);z-index:20;
+  display:flex;flex-direction:column;gap:1.6rem}
+.rail::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.rail::after{content:"";position:absolute;left:5px;top:6px;width:1px;height:var(--p,0%);
+  background:var(--accent);transition:height .12s linear,background-color .8s}
+.rail a{position:relative;display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--dim);
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;transition:color .4s}
+.rail a .dot{width:11px;height:11px;border-radius:50%;border:1px solid var(--dim);background:var(--bg);
+  flex:none;transition:all .4s;z-index:1}
+.rail a .t{opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s}
+.rail a:hover .t,.rail a.on .t{opacity:1;transform:none}
+.rail a.on{color:var(--fg)}
+.rail a.on .dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
 
-/* ---------- Article blocks ---------- */
-section{padding:clamp(3rem,8vh,6rem) 0}
-.grid{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
-.grid .aside{position:sticky;top:2rem}
-.grid .aside .n{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:300;line-height:1;color:var(--accent)}
-.grid .aside .lbl{margin-top:.6rem}
-.body{max-width:var(--measure)}
-.body p{margin-bottom:1.25rem}
-.body p.lead:first-letter{
-  font-family:"Fraunces",serif;float:left;font-size:3.6rem;line-height:.72;
-  padding:.36rem .5rem 0 0;color:var(--accent);font-weight:400;
-}
-.sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.3rem;margin-top:1.6rem}
+/* ---------- chapters ---------- */
+.chapter{min-height:100svh;display:flex;align-items:center;position:relative;z-index:2;
+  scroll-snap-align:start;padding:clamp(3rem,9vh,7rem) clamp(1.5rem,7vw,5rem);
+  padding-left:clamp(3.5rem,10vw,7rem);}
+.inner{max-width:760px;width:100%;margin:0 auto}
+.era{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:.9rem}
+.era::before{content:"";width:34px;height:1px;background:var(--accent)}
+.big{font-family:"Fraunces",serif;font-weight:300;font-optical-sizing:auto;
+  font-size:clamp(3.4rem,13vw,9rem);line-height:.9;letter-spacing:-.02em}
+.big em{font-style:italic;color:var(--accent)}
+.dek{font-family:"Fraunces",serif;font-weight:300;font-style:italic;
+  font-size:clamp(1.4rem,3.4vw,2.1rem);line-height:1.35;margin:1.4rem 0 1.8rem;color:var(--fg)}
+.copy{max-width:56ch;font-size:clamp(1rem,1.5vw,1.15rem);color:var(--fg)}
+.copy em{font-style:italic;color:var(--accent)}
+.stamp{font-family:"Fraunces",serif;font-style:italic;color:var(--dim);font-size:1.05rem;margin-top:.4rem}
 
-/* line reveal */
-.rise{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.rise.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+/* intro specifics */
+.intro .top{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:clamp(2rem,7vh,4rem)}
+.intro .big{font-size:clamp(3.8rem,15vw,11rem)}
+.intro .big .name{font-style:italic;color:var(--accent)}
+.intro .sub{font-family:"Fraunces",serif;font-weight:300;font-style:italic;
+  font-size:clamp(1.2rem,2.8vw,1.6rem);color:var(--fg);max-width:26ch;margin-top:2rem}
+.cue{margin-top:clamp(2.5rem,8vh,4.5rem);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--dim);display:flex;align-items:center;gap:.8rem}
+.cue .a{display:inline-block;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
-/* ---------- Featured memory ---------- */
-.feature{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:clamp(3rem,9vh,6rem) 0;text-align:left}
-.feature .label{margin-bottom:1.6rem}
-.feature blockquote{
-  font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.55rem,4.2vw,2.8rem);
-  line-height:1.28;letter-spacing:-.01em;max-width:26ch;
-}
-.feature blockquote em{color:var(--accent);font-style:italic}
-.feature .dateline{font-family:"Fraunces",serif;font-style:italic;color:var(--soft);
-  font-size:1.05rem;margin:0 0 1.5rem}
-.feature .essay{max-width:60ch;margin-top:2.4rem}
-.feature .essay p{margin-bottom:1.15rem}
-.feature .essay em{font-style:italic;color:var(--accent)}
+/* closing */
+.sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.4rem;color:var(--accent);margin-top:1.8rem}
+.colophon{margin-top:clamp(3rem,9vh,5rem);padding-top:1.4rem;border-top:1px solid var(--line);
+  font-size:.72rem;letter-spacing:.08em;color:var(--dim);max-width:56ch}
 
-/* ---------- Plates (photos) ---------- */
-.plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(1.4rem,4vw,3rem)}
-figure.plate{margin:0}
-.plate .frame{
-  aspect-ratio:4/5;background:#e7e0d3 no-repeat center/cover;
-  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-  filter:grayscale(.15);
-}
-.plate .frame .hint{font-family:"Instrument Sans";font-size:.72rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--faint);text-align:center;padding:1rem}
-.plate figcaption{display:flex;justify-content:space-between;gap:1rem;margin-top:.8rem;
-  font-size:.78rem;letter-spacing:.06em;color:var(--soft);border-top:1px solid var(--ink);padding-top:.6rem}
-.plate figcaption .pl{font-family:"Fraunces",serif;font-style:italic}
-
-/* ---------- Colophon ---------- */
-.colophon{padding:clamp(3rem,10vh,7rem) 0 clamp(3rem,8vh,5rem);border-top:1px solid var(--line)}
-.colophon .big{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.8rem,6vw,3.4rem);
-  line-height:1.15;max-width:20ch}
-.colophon .big em{font-style:italic;color:var(--accent)}
-.colophon .foot{display:flex;justify-content:space-between;gap:1.5rem;margin-top:clamp(2.5rem,7vh,4.5rem);
-  flex-wrap:wrap;font-size:.76rem;letter-spacing:.06em;color:var(--soft)}
-.colophon .spark{color:var(--accent);cursor:default}
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.r1{transition-delay:.1s}.r2{transition-delay:.22s}.r3{transition-delay:.34s}.r4{transition-delay:.46s}
 
 @media(max-width:640px){
-  .grid{grid-template-columns:1fr;gap:1rem}
-  .grid .aside{position:static;display:flex;align-items:baseline;gap:1rem}
-  .grid .aside .n{font-size:1.8rem}.grid .aside .lbl{margin-top:0}
+  .rail{display:none}
+  .chapter{padding-left:clamp(1.5rem,7vw,5rem)}
 }
-@media(prefers-reduced-motion:reduce){.rise{transition:none}}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none}.cue .a{animation:none}}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="grain"></div>
+<div class="topbar"><i></i></div>
 
-  <!-- MASTHEAD -->
-  <header class="masthead">
-    <span class="t">The Amulya Edition</span>
-    <span class="label">Friendship Day · MMXXVI</span>
-  </header>
-  <hr class="rule" />
+<nav class="rail" aria-label="Chapters">
+  <a href="#start" data-rail="start" class="on"><span class="dot"></span><span class="t">Start</span></a>
+  <a href="#march" data-rail="march"><span class="dot"></span><span class="t">March</span></a>
+  <a href="#week" data-rail="week"><span class="dot"></span><span class="t">This week</span></a>
+  <a href="#tonight" data-rail="tonight"><span class="dot"></span><span class="t">Tonight</span></a>
+  <a href="#foryou" data-rail="foryou"><span class="dot"></span><span class="t">For you</span></a>
+</nav>
 
-  <!-- COVER -->
-  <section class="cover">
-    <div class="kicker label rise in">A dedication, in one part — for a friend worth the whole page</div>
-    <h1 class="rise in d1">For<br/><span class="name">Amulya.</span></h1>
-    <p class="stand serif rise in d2">It took one honest night to turn five quiet months of knowing you into someone I'll keep on purpose.</p>
-    <div class="meta rise in d3">
-      <div><span class="k">Written by</span><span class="v">Kalyan</span></div>
-      <div><span class="k">For</span><span class="v">Amulya</span></div>
-      <div><span class="k">Since</span><span class="v">March 2026</span></div>
-      <div><span class="k">The night</span><span class="v">2 August 2026</span></div>
-    </div>
-  </section>
+<!-- START -->
+<section class="chapter intro" id="start"
+  data-bg="#100e0c" data-fg="#f2ece1" data-dim="#8a8073" data-accent="#e0a35c" data-line="rgba(255,255,255,.14)">
+  <div class="inner">
+    <div class="top reveal in">For Amulya · Friendship Day MMXXVI</div>
+    <h1 class="big reveal in r1">For<br/><span class="name serif">Amulya.</span></h1>
+    <p class="sub reveal in r2">A story in three chapters — and one night I'm not letting either of us call small.</p>
+    <div class="cue reveal in r3">Scroll <span class="a">↓</span></div>
+  </div>
+</section>
 
-  <!-- THE LETTER -->
-  <section class="grid">
-    <div class="aside rise">
-      <div class="n">01</div>
-      <div class="lbl label">The Letter</div>
-    </div>
-    <div class="body rise d1">
-      <p class="lead">I'm not usually the kind of person who builds a whole website about someone. But it's the middle of the night, we've only really known each other properly for about a week, and I already can't picture the version of my life that doesn't have you in it.</p>
-      <p>We met back in March and stayed politely, pleasantly at arm's length for months — friends in the loosest sense of the word. Then this past week the distance just started closing, fast, and tonight it disappeared completely.</p>
-      <p>So this is the smallest way I know to say the loud thing out loud: thank you for tonight, and for being the rare kind of person who's easy to know and impossible to forget.</p>
-      <p class="sign accent">— Kalyan</p>
-    </div>
-  </section>
+<!-- MARCH -->
+<section class="chapter" id="march"
+  data-bg="#1b2027" data-fg="#cfd6dd" data-dim="#7c8691" data-accent="#a3b7c6" data-line="rgba(255,255,255,.12)">
+  <div class="inner">
+    <div class="era reveal">Chapter 01 · The distance</div>
+    <h2 class="big reveal r1">March</h2>
+    <p class="dek reveal r2">Where it started — quietly, and without a clue what it would become.</p>
+    <p class="copy reveal r3">We met back in March and stayed politely, pleasantly at arm's length for months — friends in the loosest sense of the word. Nothing in it hinted at any of this.</p>
+  </div>
+</section>
 
-  <!-- FEATURED MEMORY -->
-  <section class="feature">
-    <div class="page" style="padding:0">
-      <div class="label rise">02 — The One I Keep</div>
-      <div class="dateline rise">2 August 2026 · past midnight</div>
-      <blockquote class="serif rise d1">Tonight we talked all the way down to the bottom of things — and something quietly <em>rearranged itself.</em></blockquote>
-      <div class="essay rise d2">
-        <p>We've technically been friends since March, but for months we were just — around each other. Polite. Pleasant. At arm's length. It was only this past week that the distance started closing, fast, the way it does maybe once or twice in a whole life.</p>
-        <p>And then tonight, the 2nd of August, we had the kind of conversation you can't plan and can't fake — nothing performed, nothing held back, just the two of us actually meeting each other for the first time. I don't have a tidier word for what happened in that hour than <em>magic</em>, so I'm not going to look for one.</p>
-        <p>I'm writing it down while it's still warm, so neither of us ever gets to call it small.</p>
-      </div>
-    </div>
-  </section>
+<!-- THIS WEEK -->
+<section class="chapter" id="week"
+  data-bg="#241a26" data-fg="#ede2ec" data-dim="#998597" data-accent="#d79ac4" data-line="rgba(255,255,255,.13)">
+  <div class="inner">
+    <div class="era reveal">Chapter 02 · The turn</div>
+    <h2 class="big reveal r1">This week</h2>
+    <p class="dek reveal r2">When it changed — all at once, faster than either of us expected.</p>
+    <p class="copy reveal r3">Then, in the space of a few days, the distance just started closing — fast, the way it does maybe once or twice in a whole life. Suddenly there was nowhere left to be polite about.</p>
+  </div>
+</section>
 
-  <!-- PLATES -->
-  <section class="grid">
-    <div class="aside rise">
-      <div class="n">03</div>
-      <div class="lbl label">Plates</div>
-    </div>
-    <div class="body" style="max-width:none">
-      <p class="rise" style="max-width:40ch;color:var(--soft);margin-bottom:2rem">A few frames worth developing. Drop images into <code>photos/</code> as <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code>.</p>
-      <div class="plates">
-        <figure class="plate rise"><div class="frame" data-photo="photos/1.jpg"><span class="hint">Plate I<br/>photos/1.jpg</span></div><figcaption><span class="pl">Plate I</span><span>the beginning</span></figcaption></figure>
-        <figure class="plate rise d1"><div class="frame" data-photo="photos/2.jpg"><span class="hint">Plate II<br/>photos/2.jpg</span></div><figcaption><span class="pl">Plate II</span><span>us, unposed</span></figcaption></figure>
-        <figure class="plate rise d2"><div class="frame" data-photo="photos/3.jpg"><span class="hint">Plate III<br/>photos/3.jpg</span></div><figcaption><span class="pl">Plate III</span><span>lately</span></figcaption></figure>
-      </div>
-    </div>
-  </section>
+<!-- TONIGHT -->
+<section class="chapter" id="tonight"
+  data-bg="#1a1210" data-fg="#f4e7dc" data-dim="#a3897a" data-accent="#f0a860" data-line="rgba(255,255,255,.14)">
+  <div class="inner">
+    <div class="era reveal">Chapter 03 · The night</div>
+    <h2 class="big reveal r1">Tonight<em>.</em></h2>
+    <p class="stamp reveal r1">2 August 2026 · past midnight</p>
+    <p class="dek reveal r2">When it disappeared completely.</p>
+    <p class="copy reveal r3">We talked all the way down to the bottom of things — the kind of conversation you can't plan and can't fake. Nothing performed, nothing held back, just the two of us actually meeting each other for the first time. I don't have a tidier word for what happened in that hour than <em>magic</em>, so I'm not going to look for one.</p>
+  </div>
+</section>
 
-  <!-- COLOPHON -->
-  <footer class="colophon">
-    <p class="big serif rise">Here's to another year of <em>you.</em></p>
-    <div class="foot rise d1">
-      <span>Set in Fraunces &amp; Instrument Sans. Made by hand, not by template.</span>
-      <span><span class="spark" id="spark">✦</span> &nbsp;For Amulya, with everything.</span>
-    </div>
-  </footer>
-
-</div>
+<!-- FOR YOU -->
+<section class="chapter" id="foryou"
+  data-bg="#f2ede4" data-fg="#201d19" data-dim="#6f6658" data-accent="#b0492a" data-line="rgba(0,0,0,.12)">
+  <div class="inner">
+    <div class="era reveal">— &nbsp;For you, Amulya</div>
+    <h2 class="big reveal r1">Here's to<br/><em>whatever this is.</em></h2>
+    <p class="copy reveal r2" style="margin-top:1.6rem">I'm not usually the kind of person who builds a whole website about someone. You're the exception. So here's the loud thing, said out loud: thank you for tonight — and for being the rare kind of person who's easy to know and impossible to forget.</p>
+    <p class="copy reveal r3" style="margin-top:1rem">I'm writing it down while it's still warm, so neither of us ever gets to call it small.</p>
+    <p class="sign reveal r3">— Kalyan</p>
+    <p class="colophon reveal r4">Set in Fraunces &amp; Instrument Sans. Written by hand, not by template — for Amulya, with everything.</p>
+  </div>
+</section>
 
 <script>
-/* quiet, editorial reveal — no confetti, no noise */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.2,rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.rise:not(.in)').forEach(el=>io.observe(el));
+const chapters=[...document.querySelectorAll('.chapter')];
+const rail=Object.fromEntries([...document.querySelectorAll('.rail a')].map(a=>[a.dataset.rail,a]));
+const root=document.documentElement;
 
-/* swap in real photos when present */
-document.querySelectorAll('.frame[data-photo]').forEach(f=>{
-  const img=new Image();
-  img.onload=()=>{f.style.backgroundImage=`url('${f.dataset.photo}')`;const h=f.querySelector('.hint');if(h)h.style.display='none';f.style.filter='grayscale(0)';};
-  img.src=f.dataset.photo;
-});
+/* palette cross-fade + active rail + reveal, driven by which chapter owns the viewport centre */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const c=e.target;
+    // apply palette
+    for(const[k,v] of Object.entries({bg:'--bg',fg:'--fg',dim:'--dim',accent:'--accent',line:'--line'}))
+      root.style.setProperty(v,c.dataset[k]);
+    // rail active
+    Object.values(rail).forEach(a=>a.classList.remove('on'));
+    if(rail[c.id]) rail[c.id].classList.add('on');
+  });
+},{rootMargin:'-45% 0px -45% 0px',threshold:0});
+chapters.forEach(c=>active.observe(c));
 
-/* one restrained flourish: the closing mark breathes on hover */
-const spark=document.getElementById('spark');
-if(spark){spark.style.transition='transform .6s ease, color .6s ease';
-  spark.addEventListener('pointerenter',()=>{spark.style.transform='rotate(180deg) scale(1.4)';});
-  spark.addEventListener('pointerleave',()=>{spark.style.transform='none';});}
+/* reveal children when chapter enters */
+const rev=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); rev.unobserve(e.target);} });
+},{threshold:.25});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>rev.observe(el));
+
+/* progress fill (top bar + rail) */
+const bar=document.querySelector('.topbar i');
+function prog(){
+  const p=Math.min(1,Math.max(0,scrollY/(document.body.scrollHeight-innerHeight)));
+  const pct=(p*100).toFixed(2)+'%';
+  bar.style.setProperty('--p',pct);
+  document.querySelector('.rail').style.setProperty('--p',pct);
+}
+addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);prog();
 </script>
 </body>
 </html>
